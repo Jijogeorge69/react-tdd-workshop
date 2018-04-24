@@ -41,14 +41,4 @@ describe('Tic Tac Toe', () => {
     await driver.clickACellAt(2);
     expect(await driver.getWinnerMessage()).toBe(`${player1} won!`);
   });
-
-  test('player X should not change already pressed cell', async () => {
-    const player1 = 'Yaniv';
-    const player2 = 'Computer';
-    await driver.newGame(player1, player2);
-    await driver.clickACellAt(0);
-    expect(await driver.getACellValueAt(0)).toBe('X');
-    await driver.clickACellAt(0);
-    expect(await driver.getACellValueAt(0)).toBe('X');
-  });
 });
