@@ -22,9 +22,11 @@ class App extends React.Component {
   handleCellClick = (rIndex, cIndex) => {
     const board = this.state.board.map(row => [...row]);
 
-    if (this.isCellNonEmpty(board, rIndex, cIndex)) {
+    const isCellNonEmpty = board[rIndex][cIndex] !== '';
+    if (isCellNonEmpty) {
       return;
     }
+
     board[rIndex][cIndex] = this.state.currentPlayer;
     if (gameStatus(board) === this.state.currentPlayer) {
       this.setState({ winner: this.state.currentPlayer });
@@ -33,7 +35,6 @@ class App extends React.Component {
     this.setState({ board, currentPlayer: nextPlayer });
   };
 
-  isCellNonEmpty = (board, rIndex, cIndex) => board[rIndex][cIndex] !== '';
   render() {
     return (
       <div className="App">
