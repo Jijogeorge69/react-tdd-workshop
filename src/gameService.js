@@ -18,10 +18,10 @@ export const gameStatus = board => {
     return isRowWin || isColWin || isDiagonalWin;
   };
 
-  const isBoardCovered = () => {
+  const isTie = () => {
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
-        if (board[i][j] !== '') {
+        if (board[i][j] === '') {
           return false;
         }
       }
@@ -35,7 +35,7 @@ export const gameStatus = board => {
   if (isWin('O')) {
     return 'O';
   }
-  if (isBoardCovered) {
+  if (isTie()) {
     return '-';
   }
 };

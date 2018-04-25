@@ -62,3 +62,24 @@ test('player O should not change already pressed cell', () => {
   driver.clickACellAt(0);
   expect(driver.getACellAt(0)).toBe('X');
 });
+
+test('should show a tie message', () => {
+  const player1 = 'Yaniv';
+  const player2 = 'Computer';
+  driver.render(<App />);
+  driver.newGame(player1, player2);
+  // 0,1,2,4,3,5,7,6,8
+  // X O X
+  // X O O
+  // O X X
+  driver.clickACellAt(0);
+  driver.clickACellAt(1);
+  driver.clickACellAt(2);
+  driver.clickACellAt(4);
+  driver.clickACellAt(3);
+  driver.clickACellAt(5);
+  driver.clickACellAt(7);
+  driver.clickACellAt(6);
+  driver.clickACellAt(8);
+  expect(driver.getTieMessage()).toBe("It's a tie!");
+});

@@ -13,6 +13,7 @@ class App extends React.Component {
       board: [['', '', ''], ['', '', ''], ['', '', '']],
       winner: '',
       currentPlayer: 'X',
+      isTie: false,
     };
   }
   onNewGame = ({ p1Name, p2Name }) => {
@@ -30,6 +31,9 @@ class App extends React.Component {
     board[rIndex][cIndex] = this.state.currentPlayer;
     if (gameStatus(board) === this.state.currentPlayer) {
       this.setState({ winner: this.state.currentPlayer });
+    }
+    if (gameStatus(board) === '-') {
+      this.setState({ isTie: true });
     }
     const nextPlayer = this.state.currentPlayer === 'X' ? 'O' : 'X';
     this.setState({ board, currentPlayer: nextPlayer });
@@ -50,6 +54,7 @@ class App extends React.Component {
             {`${this.state.winner === 'X' ? this.state.p1Name : this.state.p2Name} won!`}
           </div>
         )}
+        {this.state.isTie && <div data-hook="tie-message">It&#39;s a tie!</div>}
       </div>
     );
   }
