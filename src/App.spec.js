@@ -49,3 +49,16 @@ test('player X should not change already pressed cell', () => {
   driver.clickACellAt(0);
   expect(driver.getACellAt(0)).toBe('X');
 });
+
+test('player O should not change already pressed cell', () => {
+  const player1 = 'Yaniv';
+  const player2 = 'Computer';
+  driver.render(<App />);
+  driver.newGame(player1, player2);
+  driver.clickACellAt(0);
+  driver.clickACellAt(1);
+  driver.clickACellAt(1);
+  expect(driver.getACellAt(1)).toBe('O');
+  driver.clickACellAt(0);
+  expect(driver.getACellAt(0)).toBe('X');
+});
