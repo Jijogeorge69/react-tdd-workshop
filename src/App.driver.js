@@ -24,6 +24,9 @@ const appDriver = () => {
         .text(),
     getWinnerMessage: () => wrapper.find('[data-hook="winner-message"]').text(),
     getTieMessage: () => wrapper.find('[data-hook="tie-message"]').text(),
+    getNextUser: () => {
+      return wrapper.find('.next-user').prop('data-hook') === 'p1-name' ? 'X' : 'O';
+    },
   };
 };
 

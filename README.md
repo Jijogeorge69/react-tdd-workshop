@@ -53,7 +53,7 @@ The end result will be something like this:
 - [X] Complete game winning logic: write **_unit tests_** for the different game winning scenarios (all rows, columns/diagonals/tie).
 - [X] Write a **_component test_** verifying a user cannot press a non empty cell.
 - [X] Write a **_component test_** for a tie (show a "It's a tie!" message).
-- [ ] Write a **_browser/component_** test for marking next user in a special color (show 'X' and 'O' users and mark next user in special color).
+- [X] Write a **_browser/component_** test for marking next user in a special color (show 'X' and 'O' users and mark next user in special color).
 - [ ] Write a **_browser/component_** test for hiding registration form after game starts.
 - [ ] Write a **_browser/component_** test for hiding game board before game starts.
 - [ ] Bonus: Write a **_browser test_** for user saving / loading existing game state (use local storage for that)

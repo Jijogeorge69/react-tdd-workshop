@@ -83,3 +83,13 @@ test('should show a tie message', () => {
   driver.clickACellAt(8);
   expect(driver.getTieMessage()).toBe("It's a tie!");
 });
+test('should mark the next user', () => {
+  const p1Name = 'Yaniv';
+  const p2Name = 'Computer';
+  driver.render(<App />);
+  driver.newGame(p1Name, p2Name);
+  expect(driver.getNextUser()).toBe('X');
+  driver.clickACellAt(0);
+  expect(driver.getNextUser()).toBe('O');
+  driver.clickACellAt(1);
+});
