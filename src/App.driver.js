@@ -27,6 +27,8 @@ const appDriver = () => {
     getNextUser: () => {
       return wrapper.find('.next-user').prop('data-hook') === 'p1-name' ? 'X' : 'O';
     },
+    isRegistrationFormShown: () => wrapper.find('[data-hook="registration-form"]').exists(),
+    isGameBoardShown: () => wrapper.find('[data-hook="game-board"]').exists(),
   };
 };
 

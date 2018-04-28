@@ -93,3 +93,19 @@ test('should mark the next user', () => {
   expect(driver.getNextUser()).toBe('O');
   driver.clickACellAt(1);
 });
+test('registration form should be hidden after game starts', () => {
+  const p1Name = 'Liran';
+  const p2Name = 'Computer';
+  driver.render(<App />);
+  expect(driver.isRegistrationFormShown()).toBe(true);
+  driver.newGame(p1Name, p2Name);
+  expect(driver.isRegistrationFormShown()).toBe(false);
+});
+test('game board should be hidden before game starts', () => {
+  const p1Name = 'Liran';
+  const p2Name = 'Computer';
+  driver.render(<App />);
+  expect(driver.isGameBoardShown()).toBe(false);
+  driver.newGame(p1Name, p2Name);
+  expect(driver.isGameBoardShown()).toBe(true);
+});
