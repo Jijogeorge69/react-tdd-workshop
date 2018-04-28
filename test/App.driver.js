@@ -12,6 +12,7 @@ const appDriver = page => ({
     page.$$eval('[data-hook="cell"]', (cells, i) => cells[i].innerText, index),
   getWinnerMessage: () => page.$eval('[data-hook="winner-message"]', el => el.innerText),
   hasWinner: async () => !!await page.$('[data-hook="winner-message"]'),
+  isRegistrationFormShown: async () => !!await page.$('[data-hook="registration-form"]'),
 });
 
 module.exports = appDriver;

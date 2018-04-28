@@ -41,4 +41,12 @@ describe('Tic Tac Toe', () => {
     await driver.clickACellAt(2);
     expect(await driver.getWinnerMessage()).toBe(`${player1} won!`);
   });
+
+  test('registration form should be hidden after game starts', async () => {
+    const player1 = 'Liran';
+    const player2 = 'Computer';
+    expect(await driver.isRegistrationFormShown()).toBe(true);
+    await driver.newGame(player1, player2);
+    expect(await driver.isRegistrationFormShown()).toBe(false);
+  });
 });
