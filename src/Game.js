@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Game = ({ p1Name, p2Name, board, onCellClicked, nextUser }) => {
   return (
-    <div>
+    <div data-hook="game-board">
       <span data-hook="p1-name" className={nextUser === 'X' ? 'next-user' : ''}>
         {p1Name}
       </span>

@@ -49,4 +49,12 @@ describe('Tic Tac Toe', () => {
     await driver.newGame(player1, player2);
     expect(await driver.isRegistrationFormShown()).toBe(false);
   });
+
+  test('game board should be hidden before game starts', async () => {
+    const player1 = 'Liran';
+    const player2 = 'Computer';
+    expect(await driver.isGameBoardShown()).toBe(false);
+    await driver.newGame(player1, player2);
+    expect(await driver.isGameBoardShown()).toBe(true);
+  });
 });
